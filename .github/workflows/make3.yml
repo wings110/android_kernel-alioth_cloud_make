@@ -52,19 +52,24 @@ jobs:
         key: build-kernel-mido-kernel
         max-size: 2G
 
-    - name: 设置使用python2
+    - name: 设置python2
       run: |
         sudo apt-get update
         sudo apt-get install -y python2
-        sudo apt-get install -y pyenv
+        sudo apt-get install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev \
+          libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
+        
+        curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+        
         echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
         echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
         echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
         source ~/.bashrc
+        
         pyenv install 2.7.18
         pyenv global 2.7.18
 
-    - name: Install Python 2 dependencies
+    - name: 更新python2包
       run: |
         python2 -m pip install --upgrade pip
         python2 -m pip install -r requirements.txt
