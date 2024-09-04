@@ -54,7 +54,20 @@ jobs:
 
     - name: 设置使用python2
       run: |
-        echo "PYTHON_VERSION=2" >> $GITHUB_ENV
+        sudo apt-get update
+        sudo apt-get install -y python2
+        sudo apt-get install -y pyenv
+        echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+        echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+        echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+        source ~/.bashrc
+        pyenv install 2.7.18
+        pyenv global 2.7.18
+
+    - name: Install Python 2 dependencies
+      run: |
+        python2 -m pip install --upgrade pip
+        python2 -m pip install -r requirements.txt
 
     - name: 开始编译内核
       run: |
