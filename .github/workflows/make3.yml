@@ -52,6 +52,9 @@ jobs:
         key: build-kernel-mido-kernel
         max-size: 2G
 
+    - name: 设置使用python2
+      run: |
+        echo "PYTHON_VERSION=2" >> $GITHUB_ENV
 
     - name: 开始编译内核
       run: |
