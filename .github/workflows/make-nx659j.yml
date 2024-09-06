@@ -64,7 +64,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel/msm-4.19
         chmod +x $(find . -name "*")
-        find . -name "*.py" -exec sed -i 's/\bprint /print(/g' {} \;
+        #find . -name "*.py" -exec sed -i 's/\bprint /print(/g' {} \;
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/bin:$GITHUB_WORKSPACE/kernel_workspace/gcc64/bin:$GITHUB_WORKSPACE/kernel_workspace/gcc32/bin:$PATH
         export KBUILD_BUILD_HOST=17
         export KBUILD_BUILD_USER=HyperPower
