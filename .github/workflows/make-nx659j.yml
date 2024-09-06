@@ -43,8 +43,7 @@ jobs:
     - name: 下载内核源码
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone https://github.com/linying
-        2024/NX659J_R_kernel.git android-kernel --depth=1
+        git clone https://github.com/linying2024/NX659J_R_kernel.git android-kernel --depth=1
 
 
     - name: 安装 ksu
