@@ -43,7 +43,7 @@ jobs:
     - name: 下载内核源码
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone https://github.com/wings110/android_kernel-alioth_cloud_make.git android-kernel --depth=1
+        git clone https://github.com/raystef66/InfiniR_kernel_alioth.git android-kernel --depth=1
 
 
 
